@@ -1,11 +1,11 @@
-const { Car } = require('../../models/models');
+const { Car } = require('../models/models');
 const {
   getAllFromDB,
   getByIdFromDB,
   createInDB,
   updatedByIdInDB,
   deleteFromDB,
-} = requier('./base.js');
+} = require('./base.js');
 
 const findAllCars = getAllFromDB(Car);
 const findCarById = getByIdFromDB(Car);

@@ -1,11 +1,11 @@
-const { Bike } = require('../../models/models');
+const { Bike } = require('../models/models');
 const {
   getAllFromDB,
   getByIdFromDB,
   createInDB,
   updatedByIdInDB,
   deleteFromDB,
-} = requier('./base.js');
+} = require('./base.js');
 
 const findAllBikes = getAllFromDB(Bike);
 const findBikeById = getByIdFromDB(Bike);

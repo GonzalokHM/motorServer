@@ -1,11 +1,11 @@
-const { Driver } = require('../../models/models');
+const { Driver } = require('../models/models');
 const {
   getAllFromDB,
   getByIdFromDB,
   createInDB,
   updatedByIdInDB,
   deleteFromDB,
-} = requier('./base.js');
+} = require('./base.js');
 
 const findAllDrivers = getAllFromDB(Driver);
 const findDriverById = getByIdFromDB(Driver);

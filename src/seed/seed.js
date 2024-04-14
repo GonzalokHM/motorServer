@@ -60,19 +60,20 @@ const seed = {
         _vehicleId: 6
     }],
 
-    Drivers: [{
+    drivers: [{
         name:'Gonzalo',
         surname: 'Hernando',
         country: 'spain',
         _driverId: 1,
         _cars:[1,2],
-        _bikes: 6
+        _bikes: [5]
     },{
         name: 'Keiichi' ,
         surname: 'Tsuchiya',
         country: 'Japan',
         _driverId: 2,
-        _cars: [3,4]
+        _cars: [3,4],
+        _bikes: [6]
     }
 ]
 }

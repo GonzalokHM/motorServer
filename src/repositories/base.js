@@ -1,10 +1,12 @@
 const getAllFromDB = (model) => async (filter) => {
-  const nameFilterOptions = {
-    name: { $regex: new RegExp(filter, 'i') },
-  };
+  let queryOptions = {};
+  if (filter && filter.name) {
+    queryOptions.name = { $regex: new RegExp(filter.name, 'i') };
+  }
 
-  const item = await model.find(filter ? nameFilterOptions : {});
-  return item;
+  const items = await model.find(queryOptions);
+  return items;
+  // mas flexiblilidad mas posibles filtros
 //   const getAllFromDB = (model) => async (filter={}) => {
 //   const queryOptions = {};
 //   if (filter.name) {

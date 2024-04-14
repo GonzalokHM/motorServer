@@ -7,7 +7,7 @@ const main = async () => {
   const { cars, bikes, drivers } = await saveDocuments();
   await updateCars(cars, drivers);
   await updateBikes(bikes, drivers);
-  await updateDrivers(cars, drivers);
+  await updateDrivers(cars, bikes, drivers);
   await cleanPrivateFields();
 };
 
