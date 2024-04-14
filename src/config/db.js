@@ -16,27 +16,3 @@ mongoose
     //cerramos el servidor si no conecta con una DB
     process.exit(1)
   });
-
-
-
-//refact^^
-
-//Busines Logic
-
-// const main = async () => {
-//   try {
-//     const newCar = new Car({
-//       name: 'Chaser',
-//       Brand: 'Toyota',
-//       country: 'Japan',
-//       Transmision: 'FR',
-//     });
-
-//     await newCar.save();
-//     console.log('el elemento se ha guardado correctamente');
-//   } catch (err) {
-//     console.log('error al crear el elemento');
-//   }
-// };
-
-// main();

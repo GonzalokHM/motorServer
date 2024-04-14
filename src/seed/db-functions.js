@@ -1,6 +1,6 @@
-require('./db');
+require('../config/db');
 const { Car, Bike, Driver } = require('../models/models');
-const seed = require('../seed/seed');
+const seed = require('./seed');
 
 const cleanCollections = async () => {
   await Car.collection.drop();
@@ -32,6 +32,21 @@ const updateCars = async (cars, drivers) => {
   );
   console.log('>>> Elementos Car actualizados');
 };
+
+const updateBikes = async (bikes, drivers) => {
+  await Promise.all(
+    bikes.map(async (bike) => {
+      // Encuentra el conductor basado en el _driverId almacenado en la bicicleta
+      const driver = drivers.find((driver) => driver._driverId === bike._driver);
+      if (driver) {
+        // Actualiza la bicicleta para establecer la referencia correcta al conductor
+        await Bike.updateOne({ _id: bike._id }, { driver: driver._id });
+      }
+    })
+  );
+  console.log('>>> Elementos Bike actualizados');
+};
+
 const updateDrivers = async (cars, drivers) => {
   await Promise.all(
     drivers.map(async (driver) => {
@@ -64,6 +79,15 @@ const cleanPrivateFields = async () => {
       },
     }
   );
+  await Bike.updateMany(
+    {},
+    {
+      $unset: {
+        _vehicleId: 1,
+        _driver: 1,
+      },
+    }
+  );
   console.log('>>> Campos privados eliminados');
 };
 
@@ -71,6 +95,7 @@ module.exports = {
   cleanCollections,
   saveDocuments,
   updateCars,
+  updateBikes,
   updateDrivers,
   cleanPrivateFields,
 };

@@ -1,5 +1,5 @@
 const express = require('express');
-require('./config/db')
+require('./config/db');
 const mainRouter = require('./routes');
 
 const app = express();
@@ -13,9 +13,9 @@ app.use('*', (req, res, next) => {
 });
 
 //controlador errores generales de servidor
-app.use((error, req, res, next)=>{
-    res.status(500).json({ data: 'Internal Server Error ' });
-})
+app.use((error, req, res, next) => {
+  res.status(500).json({ data: 'Internal Server Error ' });
+});
 
 const PORT = 4001;
 app.listen(PORT, () => {

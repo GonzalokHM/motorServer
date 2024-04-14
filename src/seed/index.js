@@ -1,11 +1,12 @@
-require('./db')
-const { cleanCollections, saveDocuments, updateCars, updateDrivers, cleanPrivateFields } = require("./db-functions");
+require('../config/db')
+const { cleanCollections, saveDocuments, updateCars, updateBikes, updateDrivers, cleanPrivateFields } = require("./db-functions");
 
 
 const main = async () => {
   await cleanCollections();
   const { cars, bikes, drivers } = await saveDocuments();
   await updateCars(cars, drivers);
+  await updateBikes(bikes, drivers);
   await updateDrivers(cars, drivers);
   await cleanPrivateFields();
 };

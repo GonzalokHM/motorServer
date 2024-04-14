@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "seed": "node ./src/seed/index.js"
   },
   "keywords": [],
   "author": "",
