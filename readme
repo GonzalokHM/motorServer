@@ -1,0 +1,56 @@
+            ----------------Endpoints de la API--------------
+
+
+1. Obtener Todos los Coches
+
+ Método: GET
+ URL: /api/cars
+ Descripción: Obtiene una lista de todos los coches o una lista filtrada si se especifican parámetros de consulta como name o country.
+ Parámetros de consulta (opcional):
+ name: Filtra los coches por nombre.
+ brand: Filtra los coches por marca.
+ country: Filtra los coches por país.
+ year: Filtra los coches por año.
+  Ejemplo: curl -X GET "http://localhost:4001/api/cars?country=Japan"
+
+
+2. Obtener Coche por ID
+
+ Método: GET
+ URL: /api/cars/:id
+ Descripción: Obtiene los detalles de un coche específico por su ID.
+  Ejemplo: curl -X GET http://localhost:4001/api/cars/661c2b08f1f07cca18e906e8
+
+
+3. Crear un Nuevo Coche
+
+ Método: POST
+ URL: /api/cars
+ Descripción: Añade un nuevo coche a la base de datos.
+ Cuerpo de la solicitud(json): ej: { "name": "Civic", "brand": "Honda", "country": "Japan", "year": 2022 }
+
+  Ejemplo: curl -X POST http://localhost:4001/api/cars -H "Content-Type: application/json" -d '{"name": "Civic", "brand": "Honda", "country": "Japan", "year": 2022}'
+
+
+4. Editar un Coche por ID
+
+ Método: PUT
+ URL: /api/cars/:id
+ Descripción: Modifica los detalles de un coche existente.
+ Cuerpo de la solicitud(json): ej: { "year": 2023 }
+
+  Ejemplo: curl -X PUT http://localhost:4001/api/cars/661c2b08f1f07cca18e906e8 -H "Content-Type: application/json" -d '{"year": 2023}'
+
+
+5. Eliminar un Coche por ID
+
+ Método: DELETE
+ URL: /api/cars/:id
+ Descripción: Elimina un coche de la base de datos.
+  Ejemplo: curl -X DELETE http://localhost:4001/api/cars/661c2b08f1f07cca18e906e8
+
+
+
+
+
+
