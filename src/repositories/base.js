@@ -1,20 +1,22 @@
-const getAllFromDB = (model) => async (filter) => {
-  let queryOptions = {};
-  if (filter && filter.name) {
-    queryOptions.name = { $regex: new RegExp(filter.name, 'i') };
-  }
+// const getAllFromDB = (model) => async (filter) => {
+  // let queryOptions = {};
+  // if (filter && filter.name) {
+  //   queryOptions.name = { $regex: new RegExp(filter.name, 'i') };
+  // }
 
+  // const items = await model.find(queryOptions);
+  // return items;
+  // mas flexiblilidad mas posibles filtros
+  const getAllFromDB = (model) => async (filter={}) => {
+    console.log("Query options received in repository:", filter);
+  const queryOptions = {};
+  if (filter.name) {
+    queryOptions.name = { $regex: new RegExp(filter.name, 'i') };
+  }if(filter.country){
+    queryOptions.country = {$regex: new RegExp(filter.country, 'i')}
+  }
   const items = await model.find(queryOptions);
   return items;
-  // mas flexiblilidad mas posibles filtros
-//   const getAllFromDB = (model) => async (filter={}) => {
-//   const queryOptions = {};
-//   if (filter.name) {
-//     queryOptions.name = { $regex: new RegExp(filter.name, 'i') };
-//   }if(filter.country){
-//     queryOptions.country = {$regex: new RegExp(filter.country, 'i')}
-//   }
-// return await model.find(queryOptions);}
 };
 
 const getByIdFromDB = (model) => async (id) => {
