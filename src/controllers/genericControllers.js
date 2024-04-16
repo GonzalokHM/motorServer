@@ -2,7 +2,6 @@ const genericController = ({ findAll, findById, create, updateById, deleteIt }) 
     const getAllItems = async (req, res) => {
       try {
         const filter = req.query;
-        console.log("Received filter in controller:", filter);
         const items = await findAll(filter);
         res.status(200).json({ data: items });
       } catch (error) {

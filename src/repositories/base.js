@@ -1,5 +1,4 @@
   const getAllFromDB = (model) => async (filter={}) => {
-    console.log("Query options received in repository:", filter);
   const queryOptions = {};
   Object.keys(filter).forEach(key => {
     queryOptions[key] = { $regex: new RegExp(filter[key], 'i') };

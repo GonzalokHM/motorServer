@@ -49,12 +49,10 @@ const updateBikes = async (bikes, drivers) => {
 
 const updateDrivers = async (cars, bikes, drivers) => {
   
-  console.log("Debugging drivers data:", drivers);
 
   await Promise.all(
     drivers.map(async (driver) => {
 
-      console.log("Processing driver:", driver); 
       if (!Array.isArray(driver._cars)) {
         console.error("Error: _cars is not an array for driver", driver);
       }
